@@ -1,3 +1,25 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
+
+<div id="game-section">
+    <div class="container">
+        
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        gameSectionFillSpace();
+
+        $(window).resize(function() {
+            gameSectionFillSpace();
+        });
+
+        function gameSectionFillSpace() {
+            var remainingSpace = $(window).height() - $("#header").height();
+            $("#game-section").height(remainingSpace - 25);
+        }
+    </script>
+}

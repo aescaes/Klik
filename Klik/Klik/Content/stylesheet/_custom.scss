@@ -4,6 +4,7 @@ body {
     background: $alive-a; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $alive-a, $alive-b); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $alive-a, $alive-b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 0;
 }
 
 .row {
@@ -17,9 +18,7 @@ body {
 
 }
 
-/*
-    navbar override
-*/
+/*navbar*/
 .navbar {
     text-align: center;
 }
@@ -32,6 +31,7 @@ body {
     letter-spacing: 4px;
 }
 
+/*title*/
 .title {
     display: block;
     color: #fff;
@@ -44,6 +44,12 @@ body {
     color: #fff;
 }
 
-.collapse, .navbar-collapse {
-    text-align: center !important;
+/*game section*/
+#game-section {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+    -webkit-box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
 }
