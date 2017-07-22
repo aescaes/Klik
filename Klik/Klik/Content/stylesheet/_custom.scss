@@ -1,1 +1,7 @@
-﻿
+﻿@import "_custom-variables.scss";
+
+body {
+    background: $alive-a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $alive-a, $alive-b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $alive-a, $alive-b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
