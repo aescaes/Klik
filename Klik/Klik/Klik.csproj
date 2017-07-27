@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -583,6 +584,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bower_components\bootstrap-sass\assets\images\" />
+    <Folder Include="Views\Players\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
