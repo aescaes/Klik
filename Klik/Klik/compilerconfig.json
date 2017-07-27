@@ -2,5 +2,13 @@
   {
     "outputFile": "Content/stylesheet/app.css",
     "inputFile": "Content/stylesheet/app.scss"
+  },
+  {
+    "outputFile": "Content/stylesheet/_custom.css",
+    "inputFile": "App_Start/BundleConfig.cs"
+  },
+  {
+    "outputFile": "Content/stylesheet/_custom.css",
+    "inputFile": "Controllers/AccountController.cs"
   }
 ]

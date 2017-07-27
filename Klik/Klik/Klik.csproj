@@ -522,8 +522,11 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\klik-Exo-ExtraLight.ttf" />
     <Content Include="Content\stylesheet\_custom-fonts.scss" />
+    <Content Include="Content\fonts\Exo-Black.ttf" />
+    <Content Include="Content\fonts\Exo-Bold.ttf" />
+    <Content Include="Content\fonts\Exo-ExtraLight.ttf" />
+    <Content Include="Content\fonts\Exo-Regular.ttf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

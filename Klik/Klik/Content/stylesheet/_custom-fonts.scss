@@ -1,8 +1,24 @@
 ﻿@font-face {
-	font-family: 'Exo-ExtraLight';
-	src: url('../fonts/klik-Exo-ExtraLight.ttf') format('truetype');
+	font-family: 'Exo';
+    font-style: normal;
+    font-weight: 200;
+	src: url('../fonts/Exo-ExtraLight.ttf') format('truetype');
 }
 @font-face {
-	font-family: 'Exo-Black';
-	src: url('../fonts/klik-Exo-Black.ttf') format('truetype');
+	font-family: 'Exo';
+    font-style: normal;
+    font-weight: normal;
+	src: url('../fonts/Exo-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Exo';
+    font-style: normal;
+    font-weight: bold;
+	src: url('../fonts/Exo-Bold.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Exo';
+    font-style: normal;
+    font-weight: 900;
+	src: url('../fonts/Exo-Black.ttf') format('truetype');
 }

@@ -1,21 +1,26 @@
 ﻿@import "_custom-variables.scss";
 
+*:active, *:focus {
+    outline: 0;
+}
+
 body {
+    cursor: default;
     background: $alive-a; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $alive-a, $alive-b); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $alive-a, $alive-b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 0;
+    font-family: 'Exo';
+
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
 .row {
     margin: 0;
-}
-
-.navbar-default {
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 /*navbar*/
@@ -26,7 +31,7 @@ body {
     display: inline-block;
     float: none;
     margin-bottom: -5px;
-    font-family: 'Exo-Black';
+    font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
@@ -36,7 +41,7 @@ body {
     display: block;
     color: #fff;
     text-align: center;
-    font-family: $logo-font;
+    font-weight: 200;
     font-size: 100px;
 }
 .title:hover {
@@ -44,12 +49,83 @@ body {
     color: #fff;
 }
 
+//difficulty menu
+ #difficulty-menu {
+    .list-group {
+        font-weight: 900;
+
+        .list-group-item {
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+}
+
+/*play button*/
+.btn-play {
+    border: 0;
+    border-radius: 3px;
+    background: #fff;
+    color: $alive-a;
+    padding: 10px;
+    font-weight: bold;
+}
+
+//elements
+.element {
+    cursor: pointer;
+    position: relative;
+    border: 0;
+    padding: 0;
+    background: $alive-a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $alive-a, $alive-b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $alive-a, $alive-b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
+}
+.element-circle {
+    border-radius: 100%;
+}
+.element:active {
+    background: lighten($alive-a, 1%);
+}
+
 /*game section*/
 #game-section {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: none;
 
     -webkit-box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
     box-shadow: inset 0px 0px 11px -1px rgba(0,0,0,0.75);
+
+    #countdown {
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+/*game status*/
+#game-status {
+    display: none;
+
+    strong {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+/*game result*/
+#game-result {
+    display: none;
+    font-size: 50px;
+    text-align: center;
+
+    strong {
+        font-weight: 900;
+    }
 }
