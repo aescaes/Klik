@@ -165,8 +165,10 @@
              * transition to game section after choosing difficulty
              */
             function enterGame(size, interval) {
-                // reset score
-                score = 0;
+                score = 0; // reset score
+                $("#game-score").html(score);
+                $("#game-time").html("10s");
+                $("#countdown").show().html("The game will start in 3");
 
                 $("#difficulty-menu").fadeOut("slow", function () {
                     $("#game-section, #game-status").fadeIn("slow",
