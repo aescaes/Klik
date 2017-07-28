@@ -13,7 +13,7 @@
                         {
                             <li><a href="#">Profile</a></li>
                         }
-                        <li><a href="/game/players">Players</a></li>
+                        <li>@Html.ActionLink("Players", "Players", "Game")</li>
                         @if (Request.IsAuthenticated)
                         {
                             using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = " navbar-left" }))

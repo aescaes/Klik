@@ -14,6 +14,7 @@ namespace Klik.Controllers
         }
 
         [AllowAnonymous]
+        [Route("players")]
         public ActionResult Players()
         {
             return View();
