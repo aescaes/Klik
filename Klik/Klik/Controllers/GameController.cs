@@ -14,6 +14,11 @@ namespace Klik.Controllers
             return View();
         }
 
+        public ActionResult Players()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
