@@ -23,6 +23,13 @@ body {
     margin: 0;
 }
 
+table {
+    tr th {
+        color: $alive-a;
+        background: #fff;
+    }
+}
+
 /*navbar*/
 .navbar {
     text-align: center;

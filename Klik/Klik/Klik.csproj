@@ -580,11 +580,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Players\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bower_components\bootstrap-sass\assets\images\" />
-    <Folder Include="Views\Players\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
