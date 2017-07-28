@@ -1,8 +1,26 @@
 ﻿@model Klik.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Use another service to log in.</h4>
-<hr />
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '782560391926722',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0) {
@@ -17,11 +35,11 @@
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
-                <p>
-                    @foreach (AuthenticationDescription p in loginProviders) {
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                @*@foreach (AuthenticationDescription p in loginProviders)
+                    {
                         <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                    }
-                </p>
+                    }*@
             </div>
         }
     }
