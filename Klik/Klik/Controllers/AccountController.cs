@@ -54,7 +54,7 @@ namespace Klik.Controllers
         }
 
         //
-        // GET: /Account/Login
+        // GET: login
         [AllowAnonymous]
         public ActionResult 
             Login(string returnUrl)
@@ -64,7 +64,7 @@ namespace Klik.Controllers
         }
 
         //
-        // POST: /Account/Login
+        // POST: login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

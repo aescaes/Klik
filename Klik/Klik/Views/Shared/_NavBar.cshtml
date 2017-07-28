@@ -16,7 +16,7 @@
                         <li>@Html.ActionLink("Players", "Players", "Game")</li>
                         @if (Request.IsAuthenticated)
                         {
-                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = " navbar-left" }))
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = " navbar-left"}))
                             {
                                 @Html.AntiForgeryToken()
 
@@ -24,6 +24,10 @@
                                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                                 </ul>
                             }
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Log In", "Login", "Account")</li>
                         }
                     </ul>
                 </div><!-- /.container-fluid -->
