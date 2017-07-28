@@ -4,42 +4,35 @@
     ViewBag.Title = "Game";
 }
 
-@if (Request.IsAuthenticated)
-{
-    <p>Please login</p>
-}
-else
-{
-    <div id="difficulty-menu">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="list-group">
-                    <button class="list-group-item btn-difficulty" id="easy">Easy</button>
-                    <button class="list-group-item btn-difficulty" id="medium">Medium</button>
-                    <button class="list-group-item btn-difficulty" id="hard">Hard</button>
-                </div>
+<div id="difficulty-menu">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="list-group">
+                <button class="list-group-item btn-difficulty" id="easy">Easy</button>
+                <button class="list-group-item btn-difficulty" id="medium">Medium</button>
+                <button class="list-group-item btn-difficulty" id="hard">Hard</button>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="game-status">
-        <p>
-            <strong>Time: </strong><span id="game-time">10s</span>
-        </p>
-        <p>
-            <strong>Score: </strong><span id="game-score">0</span>
-        </p>
-    </div>
+<div id="game-status">
+    <p>
+        <strong>Time: </strong><span id="game-time">10s</span>
+    </p>
+    <p>
+        <strong>Score: </strong><span id="game-score">0</span>
+    </p>
+</div>
 
-    <div id="game-section">
-        <p id="countdown">The game will start in 3</p>
-    </div>
+<div id="game-section">
+    <p id="countdown">The game will start in 3</p>
+</div>
 
-    <div id="game-result">
-        <p><strong>Score: </strong><span id="result"></span></p>
-        <p><button class="btn-play"><i class="fa fa-rotate-right"></i> Play Again</button></p>
-    </div>
-}
+<div id="game-result">
+    <p><strong>Score: </strong><span id="result"></span></p>
+    <p><button class="btn-play"><i class="fa fa-rotate-right"></i> Play Again</button></p>
+</div>
 
 @section scripts
 {
