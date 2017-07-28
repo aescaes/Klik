@@ -8,6 +8,7 @@ namespace Klik.Controllers
 {
     public class GameController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
