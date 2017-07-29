@@ -1,4 +1,5 @@
-﻿
+﻿@model Klik.ViewModels.PlayerViewModel
+
 @{
     ViewBag.Title = "Players";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,18 +10,43 @@
         <div class="col-md-12">
             <table class="table table-bordered table-hover">
                 <tr>
-                    <th>Name</th>
+                    <th>Username</th>
                     <th>Highest Score</th>
                     <th>Recent Play</th>
-                    <th>Date Joined</th>
                 </tr>
-                <tr>
-                    <td><strong>Siong Esteban</strong></td>
-                    <td>53</td>
-                    <td>07/08/17</td>
-                    <td>06/28/17</td>
-                </tr>
+                @foreach (var player in Model.Player)
+                {
+                    <tr>
+                        <td>@player.UserName</td>
+                        <td>
+                            @Model.GameSession.Where(gs => gs.UserId.Equals(player.Id)).Max(gs => gs.Score)
+                        </td>
+                        <td>
+                            @{
+                                var recentPlay = Model.GameSession.Where(gs => gs.UserId.Equals(player.Id)).Max(gs => gs.DatePlayed.ToShortDateString());
+                                var recentScore = Model.GameSession.Where(gs => gs.UserId.Equals(player.Id)).ToList();
+                            }
+                            
+                            @recentPlay (Score: @recentScore[recentScore.Count - 1].Score)
+                        </td>
+                    </tr>
+                }
             </table>
+            @*<table class="table table-bordered table-hover">
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Date Played</th>
+                </tr>
+                @foreach (var game in Model.GameSession)
+                {
+                    <tr>
+                        <td>@game.User.UserName</td>
+                        <td>@game.Score</td>
+                        <td>@game.DatePlayed.ToShortDateString()</td>
+                    </tr>
+                }
+            </table>*@
         </div>
     </div>
 </div>
