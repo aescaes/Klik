@@ -57,5 +57,14 @@ namespace Klik.Controllers
 
             return View(gameSessions);
         }
+
+        [HttpPost]
+        public ActionResult SaveGameSession(GameSession gameSession)
+        {
+            _context.GameSessions.Add(gameSession);
+            _context.SaveChanges();
+
+            return RedirectToAction("PlayerProfile");
+        }
     }
 }
