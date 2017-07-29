@@ -8,7 +8,9 @@ namespace Klik.ViewModels
 {
     public class PlayerViewModel
     {
-        public IEnumerable<ApplicationUser> Player { get; set; }
-        public IEnumerable<GameSession> GameSession { get; set; }
+        public IEnumerable<ApplicationUser> Players { get; set; }
+        public IEnumerable<GameSession> GameSessions { get; set; }
+        public IEnumerable<GameSession> Ranking { get; set; }
+        public IEnumerable<Difficulty> Difficulties { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace Klik.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<GameSession> GameSessions { get; set; }
+        public DbSet<Difficulty> Difficulties { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

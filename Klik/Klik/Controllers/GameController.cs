@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
+using Klik.Migrations;
 using Klik.Models;
 using Klik.ViewModels;
 
@@ -29,15 +30,19 @@ namespace Klik.Controllers
         }
 
         [AllowAnonymous]
-        [Route("players")]
-        public ActionResult Players()
+        [Route("ranking")]
+        public ActionResult Ranking()
         {
             var gameSessions = _context.GameSessions.Include(gs => gs.User).ToList();
             var players = _context.Users.ToList();
+            var ranking = _context.GameSessions.OrderByDescending(gs => gs.Score).ToList();
+            var difficulties = _context.Difficulties.ToList();
             var viewModel = new PlayerViewModel
             {
-                Player = players,
-                GameSession = gameSessions
+                Players = players,
+                GameSessions = gameSessions,
+                Ranking = ranking,
+                Difficulties = difficulties
             };
 
             return View(viewModel);
