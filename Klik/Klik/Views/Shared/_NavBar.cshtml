@@ -11,7 +11,7 @@
                         <li class="active"><a href="/">Game <span class="sr-only">(current)</span></a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li><a href="#">Profile</a></li>
+                            <li>@Html.ActionLink("Profile", "PlayerProfile", "Game")</li>
                         }
                         <li>@Html.ActionLink("Ranking", "Ranking", "Game")</li>
                         @if (Request.IsAuthenticated)

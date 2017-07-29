@@ -1,40 +1,11 @@
 ﻿@model Klik.ViewModels.PlayerViewModel
 
 @{
-    ViewBag.Title = "Playerss";
+    ViewBag.Title = "Ranking";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">@*
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Players</h4>
-            <table class="table table-bordered table-hover">
-                <tr>
-                    <th>Username</th>
-                    <th>Highest Score</th>
-                    <th>Recent Play</th>
-                </tr>
-                @foreach (var player in Model.Players)
-                {
-                    <tr>
-                        <td>@player.UserName</td>
-                        <td>
-                            @Model.GameSessions.Where(gs => gs.UserId.Equals(player.Id)).Max(gs => gs.Score.ToString())
-                        </td>
-                        <td>
-                            @{
-                                var recentPlay = Model.GameSessions.Where(gs => gs.UserId.Equals(player.Id)).Max(gs => gs.DatePlayed.ToShortDateString());
-                                var recentScore = Model.GameSessions.Where(gs => gs.UserId.Equals(player.Id)).ToList();
-                            }
-
-                            @#1#recentPlay (Score: @recentScore[recentScore.Count].Score)#1#
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
-    </div>*@
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <h4>Top Ranking</h4>

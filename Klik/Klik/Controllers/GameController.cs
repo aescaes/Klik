@@ -47,5 +47,15 @@ namespace Klik.Controllers
 
             return View(viewModel);
         }
+
+        [Route("profile")]
+        public ActionResult PlayerProfile()
+        {
+            var gameSessions = _context.GameSessions
+                .Include(gs => gs.User)
+                .Include(gs => gs.Difficulty).ToList();
+
+            return View(gameSessions);
+        }
     }
 }

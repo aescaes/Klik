@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Klik.Models.GameSession>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "PlayerProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">@User.Identity.GetUserName()</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Game Log</h4>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Score</th>
+                    <th>Difficulty</th>
+                    <th>Date Played</th>
+                </tr>
+                @foreach (var game in Model.Where(g => g.User.UserName.Equals(User.Identity.GetUserName())))
+                {
+                    <tr>
+                        <td>@game.Score</td>
+                        <td>@game.Difficulty.Name</td>
+                        <td>@game.DatePlayed.ToShortDateString()</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
