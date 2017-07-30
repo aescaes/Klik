@@ -23,70 +23,19 @@
                     var playerCount = 0;
                 }
                 <div role="tabpanel" class="tab-pane fade active in" id="overall">
-                    <table class="table table-bordered table-hover">
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Score</th>
-                            <th>Difficulty</th>
-                            <th>Date Played</th>
-                        </tr>
-
-                        @{
-                            rank = Model.Ranking.ToList();
-                            playerCount = rank.Count < 5 ? rank.Count : 5;
-                        }
-                        @for (byte i = 0; i < playerCount; i++)
-                        {
-                            <tr>
-                                <td>
-                                    @{
-                                        var place = "";
-                                        if (i == 0)
-                                        {
-                                            place = "1st";
-                                        }
-                                        else if (i == 1)
-                                        {
-                                            place = "2nd";
-                                        }
-                                        else if (i == 2)
-                                        {
-                                            place = "3rd";
-                                        }
-                                        else if (i == 3)
-                                        {
-                                            place = "4th";
-                                        }
-                                        else if (i == 4)
-                                        {
-                                            place = "5th";
-                                        }
-                                    }
-                                    @place
-                                </td>
-                                <td>@rank[i].User.UserName</td>
-                                <td>@rank[i].Score</td>
-                                <td>@rank[i].Difficulty.Name</td>
-                                <td>@rank[i].DatePlayed.ToShortDateString()</td>
-                            </tr>
-                        }
-                    </table>
-                </div>
-
-                @foreach (var difficulty in Model.Difficulties)
-                {
-                    <div role="tabpanel" class="tab-pane fade" id="@difficulty.Name.ToLower()">
-                        <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover rank-table">
+                        <thead>
                             <tr>
                                 <th></th>
                                 <th>Name</th>
                                 <th>Score</th>
+                                <th>Difficulty</th>
                                 <th>Date Played</th>
                             </tr>
-
+                        </thead>
+                        <tbody>
                             @{
-                                rank = Model.Ranking.Where(r => r.DifficultyId.Equals(difficulty.Id)).ToList();
+                                rank = Model.Ranking.ToList();
                                 playerCount = rank.Count < 5 ? rank.Count : 5;
                             }
                             @for (byte i = 0; i < playerCount; i++)
@@ -120,9 +69,66 @@
                                     </td>
                                     <td>@rank[i].User.UserName</td>
                                     <td>@rank[i].Score</td>
+                                    <td>@rank[i].Difficulty.Name</td>
                                     <td>@rank[i].DatePlayed.ToShortDateString()</td>
                                 </tr>
                             }
+                        </tbody>
+                    </table>
+                </div>
+
+                @foreach (var difficulty in Model.Difficulties)
+                {
+                    <div role="tabpanel" class="tab-pane fade" id="@difficulty.Name.ToLower()">
+                        <table class="table table-bordered table-hover rank-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Date Played</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    rank = Model.Ranking.Where(r => r.DifficultyId.Equals(difficulty.Id)).ToList();
+                                    playerCount = rank.Count < 5 ? rank.Count : 5;
+                                }
+                                @for (byte i = 0; i < playerCount; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            @{
+                                                var place = "";
+                                                if (i == 0)
+                                                {
+                                                    place = "1st";
+                                                }
+                                                else if (i == 1)
+                                                {
+                                                    place = "2nd";
+                                                }
+                                                else if (i == 2)
+                                                {
+                                                    place = "3rd";
+                                                }
+                                                else if (i == 3)
+                                                {
+                                                    place = "4th";
+                                                }
+                                                else if (i == 4)
+                                                {
+                                                    place = "5th";
+                                                }
+                                            }
+                                            @place
+                                        </td>
+                                        <td>@rank[i].User.UserName</td>
+                                        <td>@rank[i].Score</td>
+                                        <td>@rank[i].DatePlayed.ToShortDateString()</td>
+                                    </tr>
+                                }
+                            </tbody>
                         </table>
                     </div>
                 }

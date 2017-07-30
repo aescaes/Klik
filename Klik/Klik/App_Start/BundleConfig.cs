@@ -12,7 +12,8 @@ namespace Klik
                         "~/Scripts/jquery-{version}.js",
                         "~/Content/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
                         "~/scripts/datatables/jquery.datatables.js",
-                        "~/scripts/datatables/datatables.bootstrap.js"));
+                        "~/scripts/datatables/datatables.bootstrap.js",
+                        "~/scripts/klik.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
