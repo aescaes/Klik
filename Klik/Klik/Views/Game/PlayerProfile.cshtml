@@ -6,27 +6,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center">@User.Identity.GetUserName()</h1>
+<h1 class="text-center"><span id="username">@User.Identity.GetUserName()</span></h1>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h4>Game Log</h4>
-            <table class="table table-bordered table-hover">
-                <tr>
-                    <th>Score</th>
-                    <th>Difficulty</th>
-                    <th>Date Played</th>
-                </tr>
-                @foreach (var game in Model.Where(g => g.User.UserName.Equals(User.Identity.GetUserName())))
-                {
+            <table id="game-log" class="table table-bordered table-hover">
+                <thead>
                     <tr>
-                        <td>@game.Score</td>
-                        <td>@game.Difficulty.Name</td>
-                        <td>@game.DatePlayed.ToShortDateString()</td>
+                        <th>Score</th>
+                        <th>Difficulty</th>
+                        <th>Date Played</th>
                     </tr>
-                }
+                </thead>
+                <tbody>
+                    @foreach (var game in Model.Where(g => g.User.UserName.Equals(User.Identity.GetUserName())))
+                    {
+                        <tr>
+                            <td>@game.Score</td>
+                            <td>@game.Difficulty.Name</td>
+                            <td>@game.DatePlayed.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+                
             </table>
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            $("#game-log").DataTable({
+                searching: false,
+                pageLength: 5,
+                lengthMenu: [[5, 10, -1], [5, 10, "All"]]
+            });
+        });
+    </script>
+}

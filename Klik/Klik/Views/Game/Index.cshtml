@@ -31,12 +31,12 @@
 </div>
 
 <div id="game-result">
-    @using (Html.BeginForm("SaveGameSession", "Game", FormMethod.Post))
+    @using (Html.BeginForm("SaveGameSession", "Game", FormMethod.Post, new { id = "game-session-submit-form" }))
     {
         @Html.HiddenFor(m => m.Score)
         @Html.HiddenFor(m => m.DifficultyId)
-        @Html.HiddenFor(m => m.UserId, new { Value = @User.Identity.GetUserId()})
-        @Html.HiddenFor(m => m.DatePlayed, new { Value = @DateTime.Now})
+        @Html.HiddenFor(m => m.UserId, new {Value = @User.Identity.GetUserId()})
+        @Html.HiddenFor(m => m.DatePlayed, new {Value = @DateTime.Now})
         <p>
             <strong>Score: </strong><span id="result"></span>
         </p>
@@ -106,20 +106,21 @@
                         $("#Score").val(score);
 
                         switch(difficulty) {
-                            case "easy":
-                                difficulty = 1;
-                                break;
-                            case "medium":
-                                difficulty = 2;
-                                break;
-                            case "hard":
-                                difficulty = 3;
-                                break;
+                        case "easy":
+                            difficulty = 1;
+                            break;
+                        case "medium":
+                            difficulty = 2;
+                            break;
+                        case "hard":
+                            difficulty = 3;
+                            break;
                         }
 
                         $("#DifficultyId").val(difficulty);
+                    }
+                );
 
-                    });
                 $("#btn-play").click(function () {
                     newGame();
                 });

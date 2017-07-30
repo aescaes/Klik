@@ -14,6 +14,8 @@ namespace Klik.Dtos
 
         public byte Score { get; set; }
 
+        public Difficulty Difficulty { get; set; }
+
         public byte DifficultyId { get; set; }
 
         public DateTime DatePlayed { get; set; }

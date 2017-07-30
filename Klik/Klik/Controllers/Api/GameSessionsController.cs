@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 using AutoMapper;
 using Klik.Dtos;
 using Klik.Models;
@@ -22,7 +23,7 @@ namespace Klik.Controllers.Api
         // GET /api/gamesessions
         public IEnumerable<GameSessionDto> GetGameSessions()
         {
-            return _context.GameSessions.ToList().Select(Mapper.Map<GameSession, GameSessionDto>);
+            return _context.GameSessions.Include(gs => gs.Difficulty).ToList().Select(Mapper.Map<GameSession, GameSessionDto>);
         }
 
         // POST /api/gamesessions
@@ -38,7 +39,7 @@ namespace Klik.Controllers.Api
 
             gameSessionDto.Id = gameSession.Id;
 
-            return Created(new Uri(Request.RequestUri + "/" + gameSession.Id), gameSessionDto);
+            return Ok();
         }
     }
 }

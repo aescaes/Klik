@@ -10,7 +10,9 @@ namespace Klik
         {
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Content/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"));
+                        "~/Content/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js",
+                        "~/scripts/datatables/jquery.datatables.js",
+                        "~/scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -21,7 +23,8 @@ namespace Klik
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/stylesheet/app.css"));
+                      "~/Content/stylesheet/app.css",
+                      "~/Content/DataTables/css/jquery.dataTables.min"));
         }
     }
 }
