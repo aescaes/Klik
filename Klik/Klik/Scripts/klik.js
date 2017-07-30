@@ -121,7 +121,7 @@
      * starts game
      */
     function startGame(size, interval) {
-        var time = 5; //game time in second
+        var time = 60; //game time in second
         // start time
         var gameTime = setInterval(function () {
                 time--;

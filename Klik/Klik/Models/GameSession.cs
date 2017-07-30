@@ -13,7 +13,7 @@ namespace Klik.Models
 
         public string UserId { get; set; }
 
-        public byte Score { get; set; }
+        public short Score { get; set; }
 
         public Difficulty Difficulty { get; set; }
 
