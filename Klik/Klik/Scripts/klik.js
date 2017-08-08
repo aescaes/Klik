@@ -5,13 +5,6 @@
         bLengthChange: false,
         lengthMenu: [[5, 10, -1], [5, 10, "All"]]
     });
-    $(".rank-table").DataTable({
-        searching: false,
-        pageLength: 5,
-        bPaginate: false,
-        bLengthChange: false,
-        bInfo: false,
-    });
 
     var gameScore;
     var gameDifficulty;
